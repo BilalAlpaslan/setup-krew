@@ -1,0 +1,16 @@
+name: Test GitHub Action
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    name: "test GitHub Action"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        id: latest-version
+      - name: Check version
+        run: krew version
